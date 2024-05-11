@@ -1,0 +1,17 @@
+{
+  "name": "web-components",
+  "version": "1.0.0",
+  "description": "A set of reusable web-components.",
+  "main": "index.js",
+  "scripts": {
+    "test": "run-script-run"
+  },
+  "keywords": [
+    "web",
+    "components",
+    "web-components",
+    "reusable"
+  ],
+  "author": "Patrick J. Rex",
+  "license": "ISC"
+}
