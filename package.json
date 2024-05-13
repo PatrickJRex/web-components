@@ -4,7 +4,9 @@
   "description": "A set of reusable web-components.",
   "main": "index.js",
   "scripts": {
-    "test": "run-script-run"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
   "keywords": [
     "web",
@@ -13,5 +15,8 @@
     "reusable"
   ],
   "author": "Patrick J. Rex",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^5.2.11"
+  }
 }

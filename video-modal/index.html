@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Modal Component Examples</title>
+    <!--Reset-->
+    <style>
+        /* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 1em;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+code {
+    background-color: black;
+    color: pink;
+}
+    </style>
+    <!--Basic styling-->
+    <style>
+        .container {
+            max-width: 144rem;
+            margin:0 auto 1rem;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+
+            @media (min-width:750px) {
+            flex-wrap: nowrap;
+            }
+        }
+    </style>
+    <!--Modal Styling-->
+    <link rel="stylesheet" href="/video-modal/video-modal.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>What if you had a video modal, but it's pretty fast?</h1>
+        <p>This heavily cribs from <a href="https://github.com/paulirish/lite-youtube-embed" target="_blank" title="Use that instead unless you have the specific use case of plopping a video into a modal.">Paul Irish's Lite YouTube embed</a> so credit where it's entirely due.</p>
+    </div>
+  
+    <div class="container">
+        <div class="row">
+           <div>
+            <h2>Basic Usage</h2>
+            <p>
+                Include <i>video-modal.js</i> and <i>video-modal.css</i> and then instantiate a basic video modal like so. 
+            </p>
+            <div>
+                <code>
+                    &lt;video-modal video="Aj6SF0Bek_E" title="NEW DGD HOMIE"&gt;&lt;/video-modal&gt;
+                </code>
+            </div>
+           </div>
+            
+        </div>
+        <div class="row">
+            <video-modal video="Aj6SF0Bek_E" title="NEW DGD HOMIE"></video-modal>
+            <video-modal video="jLzh7FK5CKY"></video-modal>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div>
+             <h2>Inline Button Usage</h2>
+             <p>
+                Add a <code> &lt;video-modal&gt;</code> element as you normally would, but add the 'button' attribute to prevent automatic thumbnail rendering, like so: <code> &lt;video-modal button&gt;</code>.
+                Then simply add the markup of your choosing inside the <code>&lt;video-modal&gt;</code> tag.
+                </p>
+            </div>
+             
+         </div>
+         <div class="row">
+          <div style="flex: 2 0 auto;">
+            <h4>As a button</h4>
+
+            <video-modal video="T9DoQ72U3r4" button>
+                <button class="btn btn-primary">
+                  CUSTOM PLAY BUTTON
+                </button>
+             </video-modal>
+          </div>
+          <div>
+            <h4>Inline within text.</h4>
+            <p>
+                Lorem ipsum dolor sit  <video-modal video="T9DoQ72U3r4" button><a href="#">PLAY VIDEO</a></video-modal>, adipisicing elit. Tempore repudiandae exercitationem porro eveniet reprehenderit hic deleniti facilis, rerum labore obcaecati excepturi quam corrupti ab ullam, perferendis, perspiciatis minima! Iusto, nemo!
+            </p>
+          </div>
+         </div>
+    </div>
+  
+
+
+    <style>
+        .inline-boi {
+            display: inline-block;
+            margin: 2rem;
+        }
+        .wide-boi {
+            width: calc(100vw - 32px);
+            margin:auto auto 2rem;
+
+            video-modal {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: var(--vm-border-radius);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            border: 2px solid rgb(54, 155, 202);
+            background: transparent;
+            padding: 15px 38px;
+            border-radius: 6px;
+            color: rgb(54, 155, 202);
+            text-shadow: rgba(0, 0, 0, 0.32) 0px 0px 20px;
+        }
+
+        /** Extending Video-Modal **/
+        .big-boi {
+            --vm-max-width: calc(100vw * 0.9);
+            width: 100%;
+        }
+    </style>
+
+    <script src="video-modal.js"></script>
+</body>
+</html>
